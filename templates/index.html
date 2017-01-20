@@ -1,3 +1,10 @@
-<p>A value from a dictionary: {{mydict['key']}}</p>
-<p>A value from a list: {{mylist[2]}}</p>
-<p>A value from an object's method: {{myobj.method()}}</p>
+<!doctype html>
+<title>Hello from Flask</title>
+
+{% include 'components/head.html' %}
+{% if name %}
+	<h1>This page for user. User name: {{name}}</h1>
+{% else %}
+	<h1>This page default.</h1>
+{% endif %}
+{% include 'components/footer.html' %}
