@@ -2,13 +2,15 @@
 {% block title %}Test Flask{% endblock %}
 {% block head %}{{super()}}{% endblock %}
 {% block body %}
-	{{super()}}
+	{{ super() }}
 	{% if name %}
 		<h1>This page for user. User name: {{name}}</h1>
 	{% else %}
-		<h1>This test page.</h1>
-		<br>
-		<a href="{{ url_for('user', username='xxx', _external=True) }}">Test link</a>
+		<div class="col-xs-12">
+			<h1>This test page.</h1>
+			<br>
+			<a href="{{ url_for('user', username='xxx', level='admin', _external=True) }}">Test link</a>
+		</div>
 	{% endif %}
 {% endblock %}
 
