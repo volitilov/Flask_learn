@@ -1,14 +1,11 @@
-<ul class="nav">
-	<li class="nav-item">
-		<a class="nav-link" href="/">Home</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="/bob">Name</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="#">Link</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link disabled" href="#">Disabled</a>
-	</li>
-</ul>
+<header class="head">
+	<ul>
+		<li><a href="/">
+			<img src="{{ url_for('static', filename='images/favicon.png') }}" alt="Go home" />
+		</a></li>
+		<li><a href="/">Home</a></li>
+		<li><a href="/bob">Name</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Disabled</a></li>
+	</ul>
+</header>
