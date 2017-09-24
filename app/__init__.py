@@ -2,18 +2,8 @@ from flask import Flask
 
 # extension
 from flask_sqlalchemy import SQLAlchemy
-from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
 from flask_mail import Mail
-
-
-
-# db      = SQLAlchemy(app)
-# migrate = Migrate(app, db)
-# mail    = Mail(app)
-# manager = Manager(app)
-
-# manager.add_command('db', MigrateCommand)
+from config import config
 
 
 mail = Mail()
@@ -28,9 +18,10 @@ def create_app(config_name):
   mail.init_app(app)
   db.init_app(app)
 
-  from main import main
-  app.registr_blueprint(main)
+  from .main import main as main_blueprint
+  app.register_blueprint(main_blueprint)
+  from .auth import auth as auth_blueprint
+  app.register_blueprint(auth_blueprint)
 
   return app
-
   

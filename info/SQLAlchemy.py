@@ -7,9 +7,9 @@ db.drop_all()       # удалить таблицы базы данных
 db.session.add_all([obj, obj]) 
 db.session.add(obj) # внести изменения бызы с помощью сеанса
 
-db.commit()         # сохранить сеанс изменений
-db.session.rollback() # откатить изменения
-db.session.delete(obj) # удаляет объект из базы
+db.session.commit()     # сохранить сеанс изменений
+db.session.rollback()   # откатить изменения
+db.session.delete(obj)  # удаляет объект из базы
 
 Eample_table.query.all() 
 # возвращает всё содержимое таблицы Example_table

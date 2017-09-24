@@ -19,25 +19,25 @@ class Config:
   FLASKY_MAIL_SUBJECT_PREFIX = '[ Pythman ] '
   FLASKY_ADMIN = 'volitilov@gmail.com'
 
+  MAIL_SERVER = 'smtp.gmail.com'
+  MAIL_PORT = 465
+  MAIL_USERNAME = 'volitilov@gmail.com'
+  MAIL_PASSWORD = 'Kendar6709'
+  MAIL_USE_SSL = True
+  MAIL_DEFAULT_SENDER = MAIL_USERNAME
+
   @staticmethod
   def init_app(app):
     pass
 
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-class DevelopmentConfug(Config):
+class DevelopmentConfig(Config):
   # включение / отключение отладчика
   DEBUG = True
 
-  MAIL_SERVER = 'smtp.gmail.com'
-  MAIL_PORT = 465
-  MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-  MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-  MAIL_USE_SSL = True
-  MAIL_DEFAULT_SENDER = MAIL_USERNAME
-
   # путь к файлу к базе данных.
   SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'dev-data.sqlite')
+        'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
 
 
 # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -45,7 +45,7 @@ class TestingConfig(Config):
   TESTING = True
 
   # путь к файлу к базе данных.
-  SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \      
+  SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
 
 
@@ -59,9 +59,9 @@ class ProductionConfig(Config):
 
 
 config = {
-  'development': DevelopmentConfug,
+  'development': DevelopmentConfig,
   'testing': TestingConfig,
   'production': ProductionConfig,
 
-  'default': DevelopmentConfug
+  'default': DevelopmentConfig
 }

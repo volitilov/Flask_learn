@@ -6,17 +6,17 @@ from flask import (
   url_for,
   flash
 )
-from app import app, db
+from . import main
+from .forms import TestForm
+from .. import db, config
 from ..email import send_email
-from ..forms.test_form import TestForm
-from ..models.role import Role
-from ..models.user import User
+from ..models import Role, User
 
 
 
-@app.route('/', methods=['POST', 'GET'])
+@main.route('/', methods=['POST', 'GET'])
 def index():
-  admin = app.config['FLASKY_ADMIN']
+  admin = 'volitilov@gmail.com'
   title = 'Home'
   form = TestForm()
   if form.validate_on_submit():
@@ -32,7 +32,7 @@ def index():
 
     session['name'] = form.name.data
     form.name.data = ''
-    return redirect(url_for('index'))
+    return redirect(url_for('.index'))
   return render_template('index.html', 
             user=session.get('name'), 
             title=title, 
