@@ -2,14 +2,11 @@
 
 {% block body %}
 <!-- block content -->
-	{% if user %} {{ user }} {% else %} Stranger! {% endif %}
-	
-	{% if not known %}
-		<p>Pleased to meet you!</p>
+	Hello,
+	{% if current_user.is_authenticated %}
+		{{ current_user.username }}
 	{% else %}
-		<p>Happy to see you again!</p>
+		Stranger
 	{% endif %}
-
-	{% include 'components/test_form.html' %}
 <!-- end block content -->
 {% endblock %}

@@ -24,17 +24,17 @@
 <body>
   {% include 'components/head.html' %}
   <main>
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <ul class="flash">
-          {% for message in messages %}
-              <button class="close">&times;</button>
-              <li>{{ message }} </li>
-          {% endfor %}
-          </ul>
-        {% endif %}
-      {% endwith %}
-      {% block body %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash">
+        {% for message in messages %}
+            <button class="close">&times;</button>
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
   </main>
   {% include 'components/footer.html' %}
 

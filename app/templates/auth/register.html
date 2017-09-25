@@ -2,16 +2,14 @@
 
 {% block body %}
 <!-- block content -->
-  <h2>Login</h2>
+  <h2>Registration</h2>
   <form method="post">
       {{ form.csrf_token }}
+      <br>{{ form.username.label }} <br> {{ form.username }} <br>
       <br>{{ form.email.label }} <br> {{ form.email }} <br>
       <br>{{ form.password.label }} <br> {{ form.password }} <br>
-      <br>{{ form.remember_me }} {{ form.remember_me.label }} <br>
+      <br>{{ form.password2.label }} <br> {{ form.password2 }} <br>
       <br> {{ form.submit }}
   </form>
-  <div>
-    <a href="{{ url_for('auth.register') }}">Click here to register</a>
-  </div>
 <!-- end block content -->
 {% endblock %}

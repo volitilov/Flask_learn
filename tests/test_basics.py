@@ -27,6 +27,7 @@ class BasicsTestCase(unittest.TestCase):
     self.app_context.pop()
 
 
+
   # проверяет наличие экземпляра приложения
   def test_app_exist(self):
     self.assertFalse(current_app is None)
